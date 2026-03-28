@@ -1,158 +1,77 @@
 "use client";
+import { motion } from "framer-motion";
+import { Apple, Smartphone, ArrowRight } from "lucide-react";
+
 export default function DownloadSection() {
   return (
-    <section
-      id="descargar"
-      style={{
-        padding: "8rem 2rem",
-        background: "linear-gradient(135deg, #0f172a 0%, #1a1040 50%, #0f172a 100%)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Glows */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <div style={{
-          position: "absolute", top: "20%", left: "15%",
-          width: 400, height: 400, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)",
-          filter: "blur(50px)",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "10%", right: "10%",
-          width: 350, height: 350, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%)",
-          filter: "blur(50px)",
-        }} />
-      </div>
+    <section id="descargar" className="section-padding relative overflow-hidden flex items-center justify-center min-h-[80vh] bg-primary border-t border-white/5 py-48 md:py-64">
+      <div className="mesh-bg opacity-30" />
+      
+      <div className="container-wide text-center relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-[11px] font-black uppercase tracking-[0.5em] mb-16 shadow-3xl"
+        >
+          🚀 Próximamente en 2026
+        </motion.div>
 
-      <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 2 }}>
-        {/* Badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "8px",
-          background: "rgba(99,102,241,0.15)",
-          border: "1px solid rgba(99,102,241,0.35)",
-          borderRadius: "50px", padding: "6px 18px", marginBottom: "2rem",
-          fontFamily: "'Outfit', sans-serif", fontSize: "0.85rem",
-          color: "#a5b4fc", fontWeight: 500,
-        }}>
-          🚀 Próximamente disponible
-        </div>
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-8xl lg:text-9xl font-black mb-16 gradient-heading tracking-tighter leading-[0.85] italic"
+        >
+          Tu escudo legal <br /> en tu bolsillo.
+        </motion.h2>
 
-        <h2 style={{
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-          fontWeight: 800, lineHeight: 1.1,
-          color: "#f1f5f9", marginBottom: "1.25rem",
-          letterSpacing: "-0.02em",
-        }}>
-          Descarga VigIA y{" "}
-          <span className="gradient-text-shimmer">conoce tus derechos</span>
-          {" "}desde hoy
-        </h2>
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-xl md:text-3xl text-dim max-w-4xl mx-auto mb-24 leading-relaxed font-black italic opacity-80 tracking-tighter"
+        >
+          Sé el primero en saber cuando VigIA esté disponible. Lleva la ley colombiana contigo y protege tus derechos en 2026.
+        </motion.p>
 
-        <p style={{
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: "1.1rem", color: "var(--text-secondary)",
-          maxWidth: "520px", margin: "0 auto 3rem",
-          lineHeight: 1.7,
-        }}>
-          Disponible para iOS y Android. Lleva a VigIA contigo en todo momento — porque no sabes cuándo la vas a necesitar.
-        </p>
-
-        {/* Store buttons */}
-        <div style={{
-          display: "flex", gap: "1rem", justifyContent: "center",
-          flexWrap: "wrap", marginBottom: "3rem",
-        }}>
-          {[
-            { icon: "🍎", store: "App Store", sub: "Para iPhone y iPad", id: "download-ios" },
-            { icon: "🤖", store: "Google Play", sub: "Para Android", id: "download-android" },
-          ].map(({ icon, store, sub, id }) => (
-            <div
-              key={store}
-              id={id}
-              style={{
-                display: "flex", alignItems: "center", gap: "14px",
-                background: "rgba(30,41,59,0.8)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "16px",
-                padding: "1rem 2rem",
-                transition: "all 0.3s ease",
-                cursor: "default",
-                minWidth: "200px",
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.transform = "translateY(-4px)";
-                el.style.borderColor = "rgba(99,102,241,0.4)";
-                el.style.boxShadow = "0 12px 40px rgba(99,102,241,0.2)";
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.transform = "translateY(0)";
-                el.style.borderColor = "rgba(255,255,255,0.1)";
-                el.style.boxShadow = "none";
-              }}
-            >
-              <span style={{ fontSize: "2rem" }}>{icon}</span>
-              <div style={{ textAlign: "left" }}>
-                <div style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.7rem", color: "var(--text-muted)",
-                  textTransform: "uppercase", letterSpacing: "0.08em",
-                  marginBottom: "2px",
-                }}>
-                  Próximamente en
-                </div>
-                <div style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "1.05rem", fontWeight: 700, color: "#f1f5f9",
-                }}>
-                  {store}
-                </div>
-                <div style={{
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.75rem", color: "var(--text-muted)",
-                }}>
-                  {sub}
-                </div>
-              </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-wrap justify-center gap-10 md:gap-16"
+        >
+          <div className="flex items-center gap-10 px-12 md:px-14 py-8 md:py-10 rounded-[3rem] bg-slate-900 border border-white/10 opacity-30 cursor-not-allowed shadow-[0_40px_80px_rgba(0,0,0,0.5)] transition-all grayscale">
+            <Apple size={48} className="text-white" />
+            <div className="text-left">
+              <div className="text-[11px] uppercase font-black opacity-50 tracking-[0.3em] mb-2">Próximamente</div>
+              <div className="font-black text-2xl tracking-tighter">App Store</div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Feature pills */}
-        <div style={{
-          display: "flex", flexWrap: "wrap", gap: "0.65rem",
-          justifyContent: "center", maxWidth: "600px", margin: "0 auto",
-        }}>
-          {[
-            "🧠 IA Legal en < 5 seg",
-            "🎥 Grabación segura",
-            "🌐 RUNT & SIMIT",
-            "🚗 Gestión vehicular",
-            "🔒 Privacidad total",
-            "🇨🇴 100% colombiana",
-            "⚖️ Art. 21 Ley 1801",
-          ].map((tag) => (
-            <span
-              key={tag}
-              style={{
-                display: "inline-block",
-                background: "rgba(30,41,59,0.9)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "50px", padding: "6px 14px",
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: "0.8rem", color: "var(--text-secondary)",
-                fontWeight: 500,
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+          <div className="flex items-center gap-10 px-12 md:px-14 py-8 md:py-10 rounded-[3rem] bg-slate-900 border border-white/10 opacity-30 cursor-not-allowed shadow-[0_40px_80px_rgba(0,0,0,0.5)] transition-all grayscale">
+            <Smartphone size={48} className="text-white" />
+            <div className="text-left">
+              <div className="text-[11px] uppercase font-black opacity-50 tracking-[0.3em] mb-2">Próximamente</div>
+              <div className="font-black text-2xl tracking-tighter">Google Play</div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.5 }}
+           className="mt-32"
+        >
+           <button className="text-blue-500 font-black uppercase tracking-[0.4em] text-xs md:text-sm border-b-4 border-blue-500/20 pb-4 hover:border-blue-500 transition-all shadow-blue-500/20 shadow-2xl">
+              Unirse a la lista de espera <ArrowRight className="inline-block ml-4 w-6 h-6" />
+           </button>
+        </motion.div>
       </div>
     </section>
   );

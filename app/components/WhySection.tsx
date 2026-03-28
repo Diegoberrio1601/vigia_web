@@ -1,183 +1,60 @@
 "use client";
+import { motion } from "framer-motion";
+import { Zap, Lock, BookOpen, UserCheck, EyeOff, Globe } from "lucide-react";
+
 const REASONS = [
-  {
-    icon: "⚡",
-    title: "Velocidad en el momento crítico",
-    desc: "Cuando un oficial te detiene tienes segundos para entender tus derechos. VigIA te da respuesta legal antes de que el procedimiento inicie. No hay tiempo para buscar en Google.",
-    color: "#f59e0b",
-    stat: "< 5 seg",
-    statLabel: "respuesta IA",
-  },
-  {
-    icon: "🔒",
-    title: "Tu privacidad, intacta",
-    desc: "Las grabaciones se guardan en tu dispositivo, nunca en la nube sin tu permiso. Tu información vehicular está cifrada. No vendemos ni compartimos tus datos.",
-    color: "#10b981",
-    stat: "100%",
-    statLabel: "privacidad local",
-  },
-  {
-    icon: "📚",
-    title: "Basado en fuentes oficiales",
-    desc: "No es una 'interpretación'. VigIA cita artículos exactos de leyes vigentes y publicadas por el Estado colombiano. La IA no inventa, informa.",
-    color: "#3b82f6",
-    stat: "4 leyes",
-    statLabel: "en la base de conocimiento",
-  },
-  {
-    icon: "🎯",
-    title: "Diseñado para el ciudadano, no para abogados",
-    desc: "Traducimos lenguaje jurídico complejo a respuestas que cualquier conductor puede entender y usar en el momento. Sin tecnicismos innecesarios.",
-    color: "#8b5cf6",
-    stat: "Lenguaje",
-    statLabel: "ciudadano simple",
-  },
-  {
-    icon: "🚫",
-    title: "No hay excusa para el abuso",
-    desc: "Con VigIA, los oficiales saben que el conductor conoce sus derechos y está grabando. Esto disuade procedimientos irregulares y promueve la transparencia.",
-    color: "#06b6d4",
-    stat: "Art. 21",
-    statLabel: "respaldo legal",
-  },
-  {
-    icon: "🇨🇴",
-    title: "Hecha para Colombia",
-    desc: "No es una app genérica traducida. VigIA fue concebida, diseñada y entrenada específicamente para el contexto jurídico y vial de Colombia.",
-    color: "#6366f1",
-    stat: "100%",
-    statLabel: "colombiana",
-  },
+  { icon: <Zap />, title: "Velocidad Crítica", desc: "Respuesta en menos de 5 segundos cuando más lo necesitas ante una autoridad en plena vía." },
+  { icon: <Lock />, title: "Privacidad Total", desc: "Tus grabaciones y datos están cifrados localmente en tu dispositivo primario." },
+  { icon: <BookOpen />, title: "Fuentes Oficiales", desc: "Citas exactas de leyes vigentes colombianas 2026, sin interpretaciones ni errores." },
+  { icon: <UserCheck />, title: "Lenguaje Ciudadano", desc: "Traducimos el derecho penal y de tránsito complejo para que cualquiera lo entienda." },
+  { icon: <EyeOff />, title: "Disuasión Efectiva", desc: "El conocimiento y la grabación detienen de inmediato cualquier intento de abuso." },
+  { icon: <Globe />, title: "100% Nacional", desc: "Hecha por y para colombianos, ajustada a nuestro marco jurídico único." }
 ];
 
 export default function WhySection() {
   return (
-    <section
-      id="porque"
-      style={{
-        padding: "7rem 2rem",
-        background: "var(--bg-primary)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Background glow */}
-      <div style={{
-        position: "absolute", top: "30%", right: "-8%",
-        width: 500, height: 500, borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%)",
-        filter: "blur(60px)", pointerEvents: "none",
-      }} />
-
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-          <span style={{
-            display: "inline-block",
-            background: "rgba(245,158,11,0.12)",
-            border: "1px solid rgba(245,158,11,0.3)",
-            borderRadius: "50px", padding: "5px 16px",
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "0.8rem", color: "#fcd34d", fontWeight: 500,
-            marginBottom: "1rem",
-          }}>
-            ¿Por qué VigIA?
-          </span>
-          <h2 style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-            fontWeight: 800, lineHeight: 1.15,
-            color: "#f1f5f9", marginBottom: "1.25rem",
-            letterSpacing: "-0.01em",
-          }}>
-            6 razones para tener VigIA{" "}
-            <span className="gradient-text-cyan">siempre contigo</span>
-          </h2>
-          <p style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "1.05rem", color: "var(--text-secondary)",
-            maxWidth: "560px", margin: "0 auto", lineHeight: 1.7,
-          }}>
-            No esperes a que te paren en la vía para pensar en esto. El conocimiento preventivo es el mejor escudo.
+    <section id="porque" className="section-padding relative overflow-hidden bg-secondary border-t border-white/5 py-32 md:py-48">
+      <div className="container-wide">
+        <div className="text-center mb-24 md:mb-32">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8"
+          >
+            Ventaja VigIA
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl lg:text-7xl font-black mb-10 gradient-heading tracking-tighter"
+          >
+            ¿Por qué usar VigIA?
+          </motion.h2>
+          <p className="text-dim text-lg md:text-xl max-w-2xl mx-auto font-black italic opacity-80 leading-relaxed">
+            El conocimiento preventivo es tu mejor escudo en la vía pública colombiana. Protegemos tu integridad personal.
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "1.5rem",
-        }}>
-          {REASONS.map(({ icon, title, desc, color, stat, statLabel }) => (
-            <div
-              key={title}
-              style={{
-                background: "var(--glass-bg)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid var(--glass-border)",
-                borderRadius: "20px",
-                padding: "1.75rem",
-                transition: "all 0.3s ease",
-                cursor: "default",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.transform = "translateY(-6px)";
-                el.style.borderColor = `${color}40`;
-                el.style.boxShadow = `0 16px 40px ${color}18`;
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.transform = "translateY(0)";
-                el.style.borderColor = "var(--glass-border)";
-                el.style.boxShadow = "none";
-              }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+          {REASONS.map((reason, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="flex flex-col gap-10 p-12 md:p-14 glow-card border-none bg-slate-900 shadow-3xl transition-all hover:bg-slate-950 group"
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                <div style={{
-                  width: 48, height: 48, borderRadius: "13px",
-                  background: `${color}18`,
-                  border: `1px solid ${color}35`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: "1.5rem",
-                }}>
-                  {icon}
-                </div>
-                <div style={{ textAlign: "right" }}>
-                  <div style={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "1.4rem", fontWeight: 800,
-                    color: color, lineHeight: 1,
-                  }}>
-                    {stat}
-                  </div>
-                  <div style={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "0.7rem", color: "var(--text-muted)",
-                  }}>
-                    {statLabel}
-                  </div>
-                </div>
+              <div className="w-16 h-16 rounded-[1.75rem] bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 shadow-xl group-hover:scale-110 transition-transform">
+                {reason.icon}
               </div>
-
-              <h3 style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 700, fontSize: "1rem",
-                color: "#f1f5f9", lineHeight: 1.3,
-              }}>
-                {title}
-              </h3>
-              <p style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: "0.875rem", color: "var(--text-muted)",
-                lineHeight: 1.65, flexGrow: 1,
-              }}>
-                {desc}
-              </p>
-            </div>
+              <div className="space-y-4">
+                <h4 className="font-black text-2xl md:text-3xl tracking-tighter text-white/95">{reason.title}</h4>
+                <p className="text-dim text-md md:text-lg leading-relaxed font-bold opacity-80">{reason.desc}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,179 +1,105 @@
 "use client";
+import { motion } from "framer-motion";
+import { Shield, ArrowRight, Play } from "lucide-react";
+
 export default function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    }
+  };
+
   return (
-    <section
-      id="hero"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
-        background: "linear-gradient(135deg, #0f172a 0%, #1a1040 50%, #0f172a 100%)",
-        padding: "8rem 2rem 4rem",
-      }}
-    >
-      {/* Background glows */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <div style={{
-          position: "absolute", top: "15%", left: "10%",
-          width: 500, height: 500, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "10%", right: "5%",
-          width: 450, height: 450, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(6,182,212,0.14) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }} />
-        <div style={{
-          position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)",
-          width: 800, height: 800, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }} />
-      </div>
+    <section id="hero" className="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-primary overflow-hidden border-b border-white/5">
+      <div className="mesh-bg" />
+      <div className="noise-overlay" />
+      
+      <div className="container-wide relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Text Content */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-start text-left"
+          >
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-black uppercase tracking-widest mb-10">
+              <Shield size={14} />
+              <span>Protección Legal 2026</span>
+            </motion.div>
+            
+            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-10 gradient-heading tracking-tighter">
+              Tus derechos <br />
+              <span className="text-blue-500">no se detienen</span> <br />
+              en la vía.
+            </motion.h1>
+            
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-dim max-w-lg mb-12 leading-relaxed font-bold opacity-80">
+              IA especializada en tránsito, grabación judicial y consultas RUNT/SIMIT en segundos. Seguridad jurídica real para conductores.
+            </motion.p>
+            
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-5 mb-16">
+              <button className="shimmer-btn bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-3 transition-all">
+                Próximamente <ArrowRight size={18} />
+              </button>
+              <button className="px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs border border-white/10 hover:bg-white/5 transition-all flex items-center gap-3">
+                Ver Demo <Play size={16} />
+              </button>
+            </motion.div>
 
-      {/* Grid overlay */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.04,
-        backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
-      }} />
+            {/* SIMIT Runt Separated */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-4 opacity-30">
+               <div className="text-[10px] font-black tracking-[0.4em] uppercase">Sincronizado con bases oficiales</div>
+               <div className="flex gap-8 font-black italic text-3xl md:text-4xl tracking-tighter">SIMIT RUNT</div>
+            </motion.div>
+          </motion.div>
 
-      {/* Content */}
-      <div style={{ maxWidth: "900px", textAlign: "center", position: "relative", zIndex: 2 }}>
-        {/* Badge */}
-        <div className="animate-fade-up" style={{
-          display: "inline-flex", alignItems: "center", gap: "8px",
-          background: "rgba(99,102,241,0.15)",
-          border: "1px solid rgba(99,102,241,0.35)",
-          borderRadius: "50px", padding: "6px 18px", marginBottom: "2rem",
-          fontFamily: "'Outfit', sans-serif", fontSize: "0.85rem",
-          color: "#a5b4fc", fontWeight: 500,
-        }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#6366f1", display: "inline-block", boxShadow: "0 0 8px #6366f1" }} />
-          LegalTech para conductores colombianos
+          {/* Smartphone Mockup - Clean and Centered */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="relative lg:ml-auto w-full max-w-[420px] mx-auto lg:mx-0"
+          >
+             <div className="relative mx-auto w-[280px] h-[580px] bg-slate-950 rounded-[3.5rem] border-[12px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-white/5">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-900 rounded-b-3xl z-30" />
+                <div className="absolute inset-0 p-6 pt-16 flex flex-col gap-6 bg-gradient-to-b from-blue-900/10 to-transparent">
+                   <div className="w-full h-10 bg-blue-500/10 rounded-2xl" />
+                   <div className="p-5 rounded-3xl bg-blue-600/5 border border-white/5 shadow-inner">
+                      <div className="w-8 h-8 bg-blue-500 rounded-lg mb-4 shadow-lg shadow-blue-500/20" />
+                      <div className="w-full h-2.5 bg-white/20 rounded-full mb-2" />
+                      <div className="w-3/4 h-2.5 bg-white/10 rounded-full" />
+                   </div>
+                   <div className="flex-1" />
+                   <div className="w-full h-14 bg-blue-600/80 rounded-2xl flex items-center justify-center font-black text-xs uppercase tracking-widest opacity-90 border border-white/5 shadow-xl">
+                      Cargando IA...
+                   </div>
+                </div>
+             </div>
+
+             {/* Accents - Contained within parent */}
+             <div className="absolute top-20 -right-4 md:-right-8 p-6 glow-card border-blue-500/30 bg-blue-600/10 shadow-3xl">
+                <div className="text-blue-400 font-black text-3xl tracking-tighter">5s</div>
+                <div className="text-[9px] font-black uppercase opacity-60 tracking-widest">Respuesta IA</div>
+             </div>
+
+             <div className="absolute bottom-20 -left-4 md:-left-8 p-6 glow-card border-purple-500/30 bg-purple-600/10 shadow-3xl">
+                <div className="text-purple-400 font-black text-3xl tracking-tighter">100%</div>
+                <div className="text-[9px] font-black uppercase opacity-60 tracking-widest">Validez Legal</div>
+             </div>
+          </motion.div>
         </div>
-
-        {/* Headline */}
-        <h1 className="animate-fade-up delay-100" style={{
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
-          fontWeight: 800,
-          lineHeight: 1.08,
-          marginBottom: "1.5rem",
-          letterSpacing: "-0.02em",
-          color: "#f1f5f9",
-        }}>
-          Tus derechos{" "}
-          <span className="gradient-text-shimmer">no se detienen</span>
-          <br />en la vía
-        </h1>
-
-        {/* Subtitle */}
-        <p className="animate-fade-up delay-200" style={{
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
-          color: "var(--text-secondary)",
-          maxWidth: "640px",
-          margin: "0 auto 2.5rem",
-          lineHeight: 1.7,
-          fontWeight: 400,
-        }}>
-          VigIA te da acceso instantáneo a tu asesor legal de tránsito, te permite grabar procedimientos con validez judicial y consultar el RUNT y SIMIT — todo en un solo lugar.
-        </p>
-
-        {/* CTAs */}
-        <div className="animate-fade-up delay-300" style={{
-          display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap",
-          marginBottom: "4rem",
-        }}>
-          <a href="#funciones" id="hero-explore-btn" style={{
-            textDecoration: "none",
-            background: "linear-gradient(135deg, #3b82f6, #6366f1)",
-            color: "#fff",
-            fontFamily: "'Outfit', sans-serif",
-            fontWeight: 600, fontSize: "1rem",
-            padding: "14px 32px", borderRadius: "50px",
-            boxShadow: "0 8px 32px rgba(99,102,241,0.4)",
-            transition: "all 0.3s ease",
-            display: "inline-flex", alignItems: "center", gap: "8px",
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.transform = "translateY(-3px)";
-            el.style.boxShadow = "0 12px 40px rgba(99,102,241,0.55)";
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.transform = "translateY(0)";
-            el.style.boxShadow = "0 8px 32px rgba(99,102,241,0.4)";
-          }}>
-            🔍 Explorar funciones
-          </a>
-          <a href="#legal" id="hero-legal-btn" style={{
-            textDecoration: "none",
-            background: "transparent",
-            border: "1px solid rgba(255,255,255,0.15)",
-            color: "#f1f5f9",
-            fontFamily: "'Outfit', sans-serif",
-            fontWeight: 500, fontSize: "1rem",
-            padding: "14px 32px", borderRadius: "50px",
-            transition: "all 0.3s ease",
-            display: "inline-flex", alignItems: "center", gap: "8px",
-            backdropFilter: "blur(8px)",
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.borderColor = "rgba(99,102,241,0.5)";
-            el.style.background = "rgba(99,102,241,0.1)";
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.borderColor = "rgba(255,255,255,0.15)";
-            el.style.background = "transparent";
-          }}>
-            ⚖️ Ver marco legal
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="animate-fade-up delay-400" style={{
-          display: "flex", justifyContent: "center", gap: "3rem",
-          flexWrap: "wrap",
-        }}>
-          {[
-            { value: "5 seg", label: "Respuesta legal" },
-            { value: "100%", label: "Basado en ley colombiana" },
-            { value: "4 módulos", label: "Todo integrado" },
-          ].map(({ value, label }) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              <div style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: "2rem", fontWeight: 700,
-                background: "linear-gradient(135deg, #06b6d4, #8b5cf6)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}>{value}</div>
-              <div style={{ color: "var(--text-muted)", fontSize: "0.85rem", fontFamily: "'Outfit', sans-serif" }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div style={{
-        position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)",
-        display: "flex", flexDirection: "column", alignItems: "center", gap: "6px",
-        opacity: 0.5,
-      }}>
-        <span style={{ color: "var(--text-muted)", fontSize: "0.75rem", fontFamily: "'Outfit', sans-serif" }}>Desplázate</span>
-        <div style={{
-          width: 1, height: 40,
-          background: "linear-gradient(to bottom, var(--accent-indigo), transparent)",
-        }} />
       </div>
     </section>
   );

@@ -1,197 +1,90 @@
-const CAN_DO = [
-  "Consultar el Código Nacional de Tránsito (Ley 769/2002) completo",
-  "Conocer las multas y sanciones de infracciones A hasta J",
-  "Grabar procedimientos del agente de tránsito (derecho legal – Art. 21)",
-  "Verificar si un oficial tiene competencia para imponer un comparendo",
-  "Consultar el estado de tu licencia de conducción en el RUNT",
-  "Ver multas y comparendos activos en el SIMIT",
-  "Obtener frases textuales para ejercer tus derechos ante un oficial",
-  "Registrar tus vehículos y recibir alertas de vencimiento del SOAT",
-  "Conocer si procede inmovilización de tu vehículo según la infracción",
-  "Acceder a resoluciones del Ministerio de Transporte",
-  "Guardar tus grabaciones localmente de forma privada",
-  "Usar la app sin conexión para funciones principales",
+"use client";
+import { motion } from "framer-motion";
+import { Check, X, ShieldAlert } from "lucide-react";
+
+const CAN = [
+  "Citar leyes vigentes y actualizadas.",
+  "Verificar deudas en RUNT y SIMIT.",
+  "Documentar procedimientos policiales.",
+  "Alertar sobre vencimientos de SOAT."
 ];
 
-const CANNOT_DO = [
-  "Sustituir la asesoría de un abogado licenciado en Colombia",
-  "Garantizar el resultado de un proceso disciplinario o judicial",
-  "Cancelar o anular comparendos directamente desde la app",
-  "Acceder a información privada o clasificada de ningún organismo",
-  "Pagar multas o realizar trámites oficiales directamente",
-  "Suplir la presentación física ante organismos de tránsito",
-  "Asesorar sobre delitos de tránsito (eso requiere abogado penalista)",
-  "Grabar sin consentimiento en espacios privados (no es para eso)",
-  "Actuar como representante legal en ningún proceso",
-  "Garantizar la actualización inmediata de cambios normativos",
+const CANNOT = [
+  "Realizar representaciones de abogados.",
+  "Interferir en el proceso policial.",
+  "Garantizar inmunidad ante infracciones."
 ];
 
 export default function LimitsSection() {
   return (
-    <section
-      id="limites"
-      style={{
-        padding: "7rem 2rem",
-        background: "linear-gradient(180deg, #0d1526 0%, var(--bg-primary) 100%)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-          <span style={{
-            display: "inline-block",
-            background: "rgba(99,102,241,0.12)",
-            border: "1px solid rgba(99,102,241,0.3)",
-            borderRadius: "50px", padding: "5px 16px",
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "0.8rem", color: "#a5b4fc", fontWeight: 500,
-            marginBottom: "1rem",
-          }}>
-            Alcances y Límites
-          </span>
-          <h2 style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-            fontWeight: 800, lineHeight: 1.15,
-            color: "#f1f5f9", marginBottom: "1.25rem",
-            letterSpacing: "-0.01em",
-          }}>
-            Qué{" "}
-            <span className="gradient-text-blue">puede</span>
-            {" "}y qué{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #f87171, #ef4444)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
-              no puede
-            </span>
-            {" "}hacer VigIA
-          </h2>
-          <p style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "1.05rem", color: "var(--text-secondary)",
-            maxWidth: "580px", margin: "0 auto", lineHeight: 1.7,
-          }}>
-            Queremos ser 100% transparentes sobre lo que VigIA ofrece y cuáles son sus límites. La honestidad es parte de nuestra misión.
-          </p>
+    <section id="limits" className="section-padding relative overflow-hidden bg-primary border-t border-white/5 pb-48">
+      <div className="container-wide">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-20">
+          {/* Can */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex-1 p-12 md:p-16 rounded-[4rem] bg-emerald-500/5 border border-emerald-500/10 shadow-3xl"
+          >
+            <div className="flex items-center gap-6 mb-12">
+               <div className="p-4 rounded-3xl bg-emerald-500/15 border border-emerald-500/20 text-emerald-400">
+                  <Check size={32} />
+               </div>
+               <h3 className="text-3xl font-black italic tracking-tighter text-white uppercase tracking-[0.1em]">Puede</h3>
+            </div>
+            <ul className="space-y-10">
+               {CAN.map((item, i) => (
+                  <li key={i} className="flex gap-6 text-slate-200 font-bold text-lg md:text-xl leading-relaxed italic opacity-90">
+                     <span className="text-emerald-500 text-3xl leading-none">•</span>
+                     {item}
+                  </li>
+               ))}
+            </ul>
+          </motion.div>
+
+          {/* Cannot */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="flex-1 p-12 md:p-16 rounded-[4rem] bg-red-500/5 border border-red-500/10 shadow-3xl"
+          >
+            <div className="flex items-center gap-6 mb-12">
+               <div className="p-4 rounded-3xl bg-red-500/15 border border-red-500/20 text-red-400">
+                  <X size={32} />
+               </div>
+               <h3 className="text-3xl font-black italic tracking-tighter text-white uppercase tracking-[0.1em]">No Puede</h3>
+            </div>
+            <ul className="space-y-10">
+               {CANNOT.map((item, i) => (
+                  <li key={i} className="flex gap-6 text-slate-200 font-bold text-lg md:text-xl leading-relaxed italic opacity-90">
+                     <span className="text-red-500 text-3xl leading-none">•</span>
+                     {item}
+                  </li>
+               ))}
+            </ul>
+          </motion.div>
         </div>
 
-        {/* Two columns */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(460px, 1fr))",
-          gap: "1.5rem",
-        }}>
-          {/* CAN DO */}
-          <div style={{
-            background: "rgba(16,185,129,0.06)",
-            border: "1px solid rgba(16,185,129,0.2)",
-            borderRadius: "20px",
-            padding: "2rem",
-          }}>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "10px",
-              marginBottom: "1.75rem",
-            }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: "10px",
-                background: "rgba(16,185,129,0.15)",
-                border: "1px solid rgba(16,185,129,0.3)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "1.2rem",
-              }}>
-                ✅
-              </div>
-              <h3 style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 700, fontSize: "1.15rem",
-                color: "#34d399",
-              }}>
-                VigIA SÍ puede ayudarte a...
-              </h3>
-            </div>
-
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {CAN_DO.map((item) => (
-                <li key={item} style={{
-                  display: "flex", alignItems: "flex-start", gap: "10px",
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.875rem", color: "var(--text-secondary)",
-                  lineHeight: 1.55,
-                }}>
-                  <span style={{
-                    width: 20, height: 20, borderRadius: "50%",
-                    background: "rgba(16,185,129,0.2)",
-                    border: "1px solid rgba(16,185,129,0.4)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "0.65rem", color: "#34d399", flexShrink: 0,
-                    marginTop: "2px",
-                  }}>
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CANNOT DO */}
-          <div style={{
-            background: "rgba(239,68,68,0.06)",
-            border: "1px solid rgba(239,68,68,0.2)",
-            borderRadius: "20px",
-            padding: "2rem",
-          }}>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "10px",
-              marginBottom: "1.75rem",
-            }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: "10px",
-                background: "rgba(239,68,68,0.15)",
-                border: "1px solid rgba(239,68,68,0.3)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "1.2rem",
-              }}>
-                ❌
-              </div>
-              <h3 style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 700, fontSize: "1.15rem",
-                color: "#f87171",
-              }}>
-                VigIA NO puede...
-              </h3>
-            </div>
-
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {CANNOT_DO.map((item) => (
-                <li key={item} style={{
-                  display: "flex", alignItems: "flex-start", gap: "10px",
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: "0.875rem", color: "var(--text-secondary)",
-                  lineHeight: 1.55,
-                }}>
-                  <span style={{
-                    width: 20, height: 20, borderRadius: "50%",
-                    background: "rgba(239,68,68,0.15)",
-                    border: "1px solid rgba(239,68,68,0.35)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "0.65rem", color: "#f87171", flexShrink: 0,
-                    marginTop: "2px",
-                  }}>
-                    ✕
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* Warning Toast */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-32 p-10 md:p-14 rounded-[3rem] border border-blue-500/10 bg-blue-500/5 flex flex-col md:flex-row items-center md:items-start gap-10 shadow-2xl shadow-blue-950/20"
+        >
+           <div className="p-6 rounded-[2rem] bg-blue-500/10 shadow-2xl shrink-0 border border-blue-500/20">
+              <ShieldAlert className="text-blue-500" size={48} />
+           </div>
+           <div className="space-y-5 text-center md:text-left">
+              <h4 className="text-2xl font-black text-blue-500 uppercase tracking-[0.4em] italic leading-none">IMPORTANTE</h4>
+              <p className="font-bold italic text-xl md:text-2xl text-dim leading-relaxed tracking-tight">
+                 VigIA es una plataforma informativa experta. Proveemos conocimiento legal inmediato pero <span className="text-white font-black underline decoration-blue-500 decoration-4 underline-offset-8">bajo ningún motivo</span> reemplazamos la asesoría jurídica personalizada de un abogado profesional colegiado.
+              </p>
+           </div>
+        </motion.div>
       </div>
     </section>
   );
