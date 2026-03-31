@@ -12,7 +12,7 @@ Esta Política de Tratamiento de Datos Personales (en adelante, la "Política") 
 
 - **Nombre/Razón Social:** [NOMBRE DE LA EMPRESA / PROYECTO VIGIA] 
 - **DOMICILIO:** [CIUDAD/DIRECCIÓN, COLOMBIA]
-- **Correo Electrónico:** [CORREO@VIGIA.APP]
+- **Correo Electrónico:** diegoberrio1601@gmail.com
 - **Teléfono:** [TELÉFONO DE CONTACTO]
 
 ---

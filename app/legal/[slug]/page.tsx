@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronLeft, Calendar, ShieldCheck, Clock } from "lucide-react";
+import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
@@ -16,6 +18,25 @@ const FILE_MAP: Record<string, string> = {
   "politica-de-privacidad": "POLITICA_DE_PRIVACIDAD.md",
   "politica-tratamiento-datos": "POLITICA_TRATAMIENTO_DATOS.md",
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const fileName = FILE_MAP[slug];
+
+  if (!fileName) return { title: "Documento No Encontrado" };
+
+  const content = fs.readFileSync(path.join(process.cwd(), "doc", "legal", fileName), "utf8");
+  const titleMatch = content.match(/^# (.*)$/m);
+  const title = titleMatch ? titleMatch[1] : "Documento Legal";
+
+  return {
+    title: `${title} — VigIA`,
+    description: `Consulta el documento oficial de ${title} para la plataforma VigIA. Transparencia y cumplimiento legal en Colombia.`,
+    alternates: {
+      canonical: `/legal/${slug}`,
+    },
+  };
+}
 
 export default async function LegalDocPage({ params }: PageProps) {
   const { slug } = await params;
@@ -54,6 +75,9 @@ export default async function LegalDocPage({ params }: PageProps) {
 
           {/* Header */}
           <div className="mb-16 space-y-8">
+            <div className="relative w-12 h-12 shadow-2xl shadow-blue-500/10 rounded-xl overflow-hidden">
+               <Image src="/logo-vigia.png" alt="VigIA Logo" fill sizes="48px" className="object-cover" />
+            </div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-text-main">
               {title}
             </h1>
@@ -89,7 +113,7 @@ export default async function LegalDocPage({ params }: PageProps) {
                 <p className="font-medium opacity-90">Nuestro equipo legal está atento a tus inquietudes.</p>
              </div>
              <a 
-              href="mailto:legal@vigia.app" 
+              href="mailto:diegoberrio1601@gmail.com" 
               className="px-8 py-4 bg-white text-blue-600 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-opacity-90 transition-all active:scale-95 shadow-lg"
              >
                 Contactar Legal

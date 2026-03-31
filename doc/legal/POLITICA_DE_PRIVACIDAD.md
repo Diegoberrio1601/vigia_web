@@ -72,4 +72,4 @@ Implementamos medidas técnicas, humanas y administrativas para garantizar la se
 
 ## 7. Contacto
 
-Si tiene preguntas sobre esta Política de Privacidad o el tratamiento de sus datos, contacte a nuestro Oficial de Protección de Datos en: **[CORREO@VIGIA.APP]**.
+Si tiene preguntas sobre esta Política de Privacidad o el tratamiento de sus datos, contacte a nuestro Oficial de Protección de Datos en: **diegoberrio1601@gmail.com**.

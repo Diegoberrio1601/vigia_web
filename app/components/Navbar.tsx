@@ -4,6 +4,7 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Qué es VigIA", href: "#que-es" },
@@ -31,7 +32,15 @@ export default function Navbar() {
       <div className="container-wide flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105">
-           <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/20">V</div>
+           <div className="relative w-10 h-10 shadow-lg shadow-blue-500/20 rounded-xl overflow-hidden">
+             <Image 
+               src="/logo-vigia.png" 
+               alt="VigIA Logo" 
+               fill 
+               sizes="40px"
+               className="object-cover"
+             />
+           </div>
            <span className="text-2xl font-black tracking-tighter text-text-main">VigIA</span>
         </Link>
 

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Briefcase, TrendingUp } from "lucide-react";
 
 export default function DownloadSection() {
   return (
@@ -68,24 +68,62 @@ export default function DownloadSection() {
         </motion.div>
 
          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-24 flex flex-col items-center gap-6"
+            className="mt-24 md:mt-32 max-w-5xl mx-auto"
          >
-            <p className="text-text-muted font-bold uppercase tracking-widest text-xs">O únete a la lista de espera</p>
-            <form className="flex w-full max-w-md p-1.5 rounded-2xl bg-primary dark:bg-card border border-border backdrop-blur-md">
-               <input 
-                 type="email" 
-                 placeholder="tu@email.com" 
-                 className="flex-1 bg-transparent px-4 py-3 outline-none text-text-main placeholder:text-text-muted"
-               />
-               <button className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all flex items-center gap-2">
-                  <Mail size={18} />
-                  <span>Avisarme</span>
-               </button>
-            </form>
+            <div className="flex flex-col items-center mb-16">
+               <h3 className="text-2xl md:text-4xl font-black mb-4 tracking-tight text-text-main">
+                 Únete a la <span className="text-blue-600">misión</span>
+               </h3>
+               <p className="text-text-muted font-medium max-w-xl">
+                 Estamos construyendo el futuro del derecho preventivo en las vías colombianas. ¿Quieres formar parte del cambio?
+               </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+               {/* Careers */}
+               <a 
+                 href="mailto:diegoberrio1601@gmail.com?subject=Interés en unirme al equipo de VigIA" 
+                 className="group p-10 glow-card flex flex-col gap-8 bg-primary/40"
+               >
+                  <div className="p-4 rounded-2xl bg-blue-600/10 text-blue-600 w-fit group-hover:scale-110 transition-transform duration-500">
+                     <Briefcase size={28} />
+                  </div>
+                  <div className="space-y-4">
+                     <h4 className="text-2xl font-bold text-text-main group-hover:text-blue-600 transition-colors">Trabaja con Nosotros</h4>
+                     <p className="text-text-muted font-medium leading-relaxed">
+                        Buscamos abogados, desarrolladores y activistas apasionados por la justicia y la tecnología. Envíanos tu perfil.
+                     </p>
+                  </div>
+                  <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-blue-600 font-bold uppercase tracking-widest text-[10px]">
+                     <span>Enviar Perfil</span>
+                     <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                  </div>
+               </a>
+
+               {/* Investment */}
+               <a 
+                 href="mailto:diegoberrio1601@gmail.com?subject=Consulta sobre inversión / alianzas con VigIA" 
+                 className="group p-10 glow-card flex flex-col gap-8 bg-primary/40"
+               >
+                  <div className="p-4 rounded-2xl bg-emerald-600/10 text-emerald-600 w-fit group-hover:scale-110 transition-transform duration-500">
+                     <TrendingUp size={28} />
+                  </div>
+                  <div className="space-y-4">
+                     <h4 className="text-2xl font-bold text-text-main group-hover:text-emerald-600 transition-colors">Inversión y Alianzas</h4>
+                     <p className="text-text-muted font-medium leading-relaxed">
+                        Buscamos socios estratégicos e inversionistas que compartan nuestra visión de escalabilidad e impacto ciudadano.
+                     </p>
+                  </div>
+                  <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-emerald-600 font-bold uppercase tracking-widest text-[10px]">
+                     <span>Contactar Socios</span>
+                     <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                  </div>
+               </a>
+            </div>
          </motion.div>
       </div>
     </section>

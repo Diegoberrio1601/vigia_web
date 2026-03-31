@@ -2,7 +2,7 @@
 
 **Última actualización: Marzo 2026**
 
-Bienvenido a **VigIA** (en adelante, la "Aplicación" o "VigIA"). Estos Términos y Condiciones (en adelante, los "T&C") constituyen un contrato legalmente vinculante entre usted (en adelante, el "Usuario") y **[NOMBRE DE LA EMPRESA / PROYECTO VIGIA]** (en adelante, el "Titular"), con domicilio en **[CIUDAD/DIRECCIÓN, COLOMBIA]** y correo electrónico de contacto **[CORREO@VIGIA.APP]**.
+Bienvenido a **VigIA** (en adelante, la "Aplicación" o "VigIA"). Estos Términos y Condiciones (en adelante, los "T&C") constituyen un contrato legalmente vinculante entre usted (en adelante, el "Usuario") y **[NOMBRE DE LA EMPRESA / PROYECTO VIGIA]** (en adelante, el "Titular"), con domicilio en **[CIUDAD/DIRECCIÓN, COLOMBIA]** y correo electrónico de contacto **diegoberrio1601@gmail.com**.
 
 Al descargar, instalar o utilizar VigIA, el Usuario acepta íntegramente estos T&C. Si no está de acuerdo con ellos, absténgase de utilizar la Aplicación.
 
@@ -79,4 +79,4 @@ El Titular se reserva el derecho de modificar estos T&C en cualquier momento. La
 
 ---
 
-> **Contacto:** Para dudas legales o reclamos, escriba a **[CORREO@VIGIA.APP]**.
+> **Contacto:** Para dudas legales o reclamos, escriba a **diegoberrio1601@gmail.com**.

@@ -1,9 +1,19 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import Image from "next/image";
 import { Shield, FileText, Scale, Database, ArrowRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const DOCUMENTS = [
+interface DocumentMeta {
+  title: string;
+  description: string;
+  slug: string;
+  icon: React.ReactNode;
+  color: string;
+}
+
+const DOCUMENTS: DocumentMeta[] = [
   {
     title: "Términos y Condiciones",
     description: "Las reglas del juego. Entiende tus derechos y responsabilidades al usar VigIA.",
@@ -27,6 +37,14 @@ const DOCUMENTS = [
   }
 ];
 
+export const metadata: Metadata = {
+  title: "Marco Legal – VigIA",
+  description: "Conoce los fundamentos legales, términos de servicio y políticas de privacidad de VigIA. Transparencia total para el conductor colombiano.",
+  alternates: {
+    canonical: "/legal",
+  },
+};
+
 export default function LegalPage() {
   return (
     <div className="relative min-h-screen bg-primary">
@@ -35,6 +53,9 @@ export default function LegalPage() {
       <main className="container-wide py-32 md:py-48 px-6">
         <div className="max-w-4xl mx-auto space-y-16">
           <div className="space-y-4 text-center md:text-left">
+            <div className="relative w-16 h-16 mb-8 mx-auto md:mx-0 shadow-2xl shadow-blue-500/20 rounded-2xl overflow-hidden">
+               <Image src="/logo-vigia.png" alt="VigIA Logo" fill sizes="64px" className="object-cover" />
+            </div>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-text-main">
               Marco <span className="text-blue-600">Legal</span>
             </h1>

@@ -2,6 +2,7 @@
 import { motion, Variants } from "framer-motion";
 import { Shield, ArrowRight, Video, Search, Car } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HeroSection() {
   const containerVariants: Variants = {
@@ -39,7 +40,9 @@ export default function HeroSection() {
             className="flex flex-col items-start"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-[12px] font-bold uppercase tracking-wider mb-8">
-              <Shield size={14} className="fill-current" />
+              <div className="relative w-4 h-4 overflow-hidden rounded-[4px]">
+                <Image src="/logo-vigia.png" alt="VigIA Logo Mark" fill sizes="16px" className="object-cover" />
+              </div>
               <span>Tu Escudo Legal en la Vía</span>
             </motion.div>
             
@@ -108,7 +111,9 @@ export default function HeroSection() {
                       <div className="w-full h-8 bg-black/20 dark:bg-white/5 rounded-xl border border-white/5" />
                       <div className="space-y-4">
                         <div className="p-4 rounded-2xl bg-blue-600/10 border border-blue-500/20">
-                          <div className="w-8 h-8 rounded-lg bg-blue-600 mb-3" />
+                          <div className="relative w-8 h-8 rounded-lg overflow-hidden mb-3">
+                            <Image src="/logo-vigia.png" alt="VigIA App Icon" fill sizes="32px" className="object-cover shadow-lg" />
+                          </div>
                           <div className="w-full h-2 bg-slate-300 dark:bg-white/20 rounded-full mb-1.5" />
                           <div className="w-2/3 h-2 bg-slate-200 dark:bg-white/10 rounded-full" />
                         </div>

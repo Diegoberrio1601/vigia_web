@@ -1,6 +1,7 @@
 "use client";
 import { Shield } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,8 +13,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/20">
-                V
+              <div className="relative w-10 h-10 shadow-lg shadow-blue-500/20 rounded-xl overflow-hidden">
+                <Image 
+                  src="/logo-vigia.png" 
+                  alt="VigIA Logo" 
+                  fill 
+                  sizes="40px"
+                  className="object-cover"
+                />
               </div>
               <span className="text-2xl font-black tracking-tighter text-text-main">
                 VigIA
@@ -103,7 +110,7 @@ export default function Footer() {
               Datos
             </Link>
             <a
-              href="mailto:legal@vigia.app"
+              href="mailto:diegoberrio1601@gmail.com"
               className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
             >
               Contacto

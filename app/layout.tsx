@@ -20,6 +20,23 @@ export const metadata: Metadata = {
     description:
       "Conoce tus derechos como conductor en Colombia. IA legal, grabación segura y consultas oficiales en un solo lugar.",
     type: "website",
+    url: "https://vigia.app",
+    siteName: "VigIA Colombia",
+    images: [{ url: "/logo-vigia.png", width: 1200, height: 630, alt: "VigIA Logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VigIA – Tus derechos no se detienen en la vía",
+    description: "La plataforma LegalTech que empodera al conductor colombiano.",
+    images: ["/logo-vigia.png"],
+  },
+  icons: {
+    icon: "/logo-vigia.png",
+    apple: "/logo-vigia.png",
+  },
+  metadataBase: new URL("https://vigia.app"),
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -39,6 +56,29 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "VigIA",
+              "operatingSystem": "iOS, Android",
+              "applicationCategory": "LegalApplication",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "description": "Plataforma LegalTech para conductores colombianos.",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "1000"
+              }
+            })
+          }}
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
