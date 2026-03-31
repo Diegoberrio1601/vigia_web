@@ -4,9 +4,10 @@ import { Check, X, ShieldAlert } from "lucide-react";
 
 const CAN = [
   "Citar leyes vigentes y actualizadas.",
-  "Verificar estados en RUNT y SIMIT.",
-  "Documentar procedimientos de forma segura.",
-  "Alertar sobre vencimientos de documentos."
+  "Entregarte el artículo exacto del Código de Tránsito en segundos.",
+  "Documentar abusos con evidencia técnica protegida en la nube.",
+  "Blindarte contra multas por olvido de SOAT o Técnico-Mecánica.",
+  "Confirmar tu estado real en SIMIT/RUNT para evitar cobros fantasma."
 ];
 
 const CANNOT = [
@@ -20,6 +21,20 @@ export default function LimitsSection() {
   return (
     <section id="limites" className="py-24 md:py-40 bg-secondary dark:bg-primary/80 transition-colors duration-500">
       <div className="container-wide">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20"
+        >
+          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter text-text-main">
+            Nuestras reglas para <span className="text-blue-600 dark:text-blue-500">tu protección</span>.
+          </h2>
+          <p className="text-xl text-text-muted font-medium leading-relaxed">
+            Somos tu escudo, no tu abogado litigante. VigIA te empodera con conocimiento educativo para prevenir abusos en tiempo real.
+          </p>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Can */}
           <motion.div 

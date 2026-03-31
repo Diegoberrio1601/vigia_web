@@ -15,9 +15,9 @@ export default function Footer() {
                 <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/20">V</div>
                 <span className="text-2xl font-black tracking-tighter text-text-main">VigIA</span>
              </div>
-             <p className="text-text-muted text-base max-w-sm leading-relaxed font-medium">
-                La plataforma líder en tecnología preventiva para conductores en Colombia. Protegiendo tus derechos en cada kilómetro.
-             </p>
+             <p className="text-text-muted text-sm leading-relaxed max-w-sm mb-10">
+              VigIA democratiza el acceso a la ley colombiana. Nuestra misión es empoderar al ciudadano con conocimiento real para prevenir abusos en la vía y garantizar el debido proceso.
+            </p>
           </div>
 
           {/* Links */}

@@ -32,24 +32,25 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text Content */}
           <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
             className="flex flex-col items-start"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-[12px] font-bold uppercase tracking-wider mb-8">
               <Shield size={14} className="fill-current" />
-              <span>Respaldo Legal para Conductores</span>
+              <span>Tu Escudo Legal en la Vía</span>
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] mb-8 tracking-tighter text-text-main">
-              Tus derechos <br />
-              <span className="text-blue-600 dark:text-blue-500">no se detienen</span> <br />
-              en la vía.
+            <motion.h1 variants={itemVariants} className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] mb-8 tracking-tighter text-text-main">
+              Que el desconocimiento <br />
+              <span className="text-blue-600 dark:text-blue-500">no sea el beneficio</span> <br />
+              del abuso.
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-text-muted max-w-xl mb-12 leading-relaxed font-medium">
-              Protección jurídica en tiempo real. Graba procedimientos policiales de forma segura, consulta RUNT/SIMIT al instante y gestiona tus documentos desde un solo lugar.
+              En la escuela no te enseñaron tus derechos, y de eso se aprovechan. VigIA te entrega el conocimiento real de la norma colombiana para que conduzcas protegido, consciente y con la ley de tu lado.
             </motion.p>
             
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-12">
@@ -57,10 +58,10 @@ export default function HeroSection() {
                 href="#descargar"
                 className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg transition-all shadow-xl shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-1 active:translate-y-0 flex items-center gap-3"
               >
-                Comenzar <ArrowRight size={20} />
+                Protégeme ahora <ArrowRight size={20} />
               </Link>
               <button className="px-8 py-4 rounded-2xl border border-border bg-card/50 hover:bg-secondary text-text-main font-bold text-lg transition-all">
-                Ver Cómo Funciona
+                Ver mis derechos
               </button>
             </motion.div>
 
@@ -68,18 +69,18 @@ export default function HeroSection() {
             <motion.div variants={itemVariants} className="grid grid-cols-3 gap-8 pt-8 border-t border-border w-full">
                <div className="flex flex-col gap-2">
                   <Video className="text-blue-600 dark:text-blue-500 w-6 h-6" />
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Grabación</div>
-                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">Segura</div>
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Evidencia</div>
+                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">Incontestable</div>
                </div>
                <div className="flex flex-col gap-2">
                   <Search className="text-blue-600 dark:text-blue-500 w-6 h-6" />
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Consultas</div>
-                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">SIMIT RUNT</div>
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Estado Legal</div>
+                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">Real e Inmediato</div>
                </div>
                <div className="flex flex-col gap-2">
                   <Car className="text-blue-600 dark:text-blue-500 w-6 h-6" />
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Gestión</div>
-                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">Vehicular</div>
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-text-muted">Control</div>
+                  <div className="text-sm font-black text-text-main italic uppercase tracking-tighter">Documental</div>
                </div>
             </motion.div>
           </motion.div>

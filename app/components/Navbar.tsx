@@ -61,7 +61,8 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-secondary dark:bg-muted text-text-muted"
+            className="md:hidden p-2.5 rounded-xl bg-secondary dark:bg-muted text-text-muted relative z-50 pointer-events-auto active:scale-95 transition-transform"
+            aria-label="Toggle Menu"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -75,7 +76,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-primary overflow-hidden"
+            className="md:hidden border-t border-border bg-primary overflow-hidden shadow-2xl"
           >
             <div className="container-wide py-8 flex flex-col gap-4">
               {NAV_LINKS.map((link) => (

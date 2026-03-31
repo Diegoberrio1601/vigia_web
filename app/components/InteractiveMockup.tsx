@@ -20,10 +20,11 @@ export default function InteractiveMockup() {
               className="relative p-10 md:p-14 glow-card rounded-[4rem] border border-border shadow-3xl bg-card"
             >
               {/* Chat UI */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-xs font-black text-white">V</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-text-muted">Defensor IA: Tu derecho, tu palabra</div>
+              </div>
               <div className="flex items-center gap-6 mb-12 pb-8 border-b border-border">
-                <div className="w-16 h-16 bg-blue-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-blue-500/30">
-                  <MessageSquare size={32} className="text-white" />
-                </div>
                 <div>
                   <div className="font-black text-2xl tracking-tight text-text-main">
                     VigIA AI Legal
@@ -35,81 +36,45 @@ export default function InteractiveMockup() {
                 </div>
               </div>
 
-              <div className="space-y-8 mb-12">
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                  className="p-8 rounded-[2rem] bg-secondary border border-border max-w-[90%] ml-auto shadow-xl"
-                >
-                  <p className="text-lg text-text-main font-bold tracking-tight">
-                    ¿Pueden inmovilizar mi vehículo por no cargar el SOAT físico
-                    si lo tengo digital?
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 2 }}
-                  className="p-10 rounded-[2.5rem] bg-blue-600/10 border border-blue-500/20 max-w-full shadow-3xl"
-                >
-                  <div className="flex gap-3 items-center mb-6">
-                    <Shield size={18} className="text-blue-500" />
-                    <span className="text-xs uppercase font-black text-blue-500 tracking-[0.3em] font-mono">
-                      Respuesta Jurídica
-                    </span>
-                  </div>
-                  <p className="text-xl md:text-2xl text-text-main font-black leading-tight mb-4">
-                    No, no procede inmovilización.
-                  </p>
-                  <p className="text-md text-text-muted leading-relaxed font-bold opacity-80">
-                    Según la Circular del Ministerio de Transporte y leyes 2026,
-                    el SOAT digital tiene la misma validez que el físico. Cite
-                    la Ley 2050 de 2020.
-                  </p>
-                </motion.div>
-              </div>
-
-              <div className="w-full h-16 bg-muted rounded-3xl flex items-center px-10 text-text-muted text-xs font-black italic border border-border shadow-inner">
-                <div className="flex gap-2.5 mr-6 opacity-30">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" />
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]" />
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0.4s]" />
+              <div className="flex flex-col gap-4">
+                <div className="self-end max-w-[80%] p-4 rounded-2xl rounded-tr-none bg-blue-600 text-white text-sm font-medium shadow-lg shadow-blue-500/20">
+                  ¿Es legal que me inmovilicen el carro por no llevar el cinturón? El agente dice que sí.
                 </div>
-                <span className="uppercase tracking-[0.4em] opacity-40">
-                  Analizando Jurisprudencia...
-                </span>
+                
+                <div className="self-start max-w-[80%] p-4 rounded-2xl rounded-tl-none bg-card border border-border text-text-main text-sm shadow-sm leading-relaxed">
+                  <span className="font-bold text-blue-600 dark:text-blue-500">Falso.</span> Según el <span className="font-bold">Art. 131</span> del Código Nacional de Tránsito, la infracción C.06 no permite la inmovilización. El agente está abusando de su desconocimiento. Cite el artículo y exija que solo se realice el comparendo.
+                </div>
               </div>
             </motion.div>
           </div>
 
           {/* Text Side (Right) */}
           <div className="order-1 lg:order-2">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-12"
-            >
-              <div className="text-blue-500 font-black uppercase tracking-[0.4em] text-[11px]">
-                Eficacia Inmediata
-              </div>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black gradient-heading tracking-tighter leading-[0.9] mb-12">
-                Tus derechos <br /> en 5 segundos.
-              </h2>
-              <div className="space-y-12">
+            <div className="p-8 md:p-12 flex flex-col justify-center">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <h3 className="text-3xl md:text-5xl font-black tracking-tighter text-text-main leading-tight">
+                  La ley no se inventa, <br />
+                  <span className="text-blue-600 dark:text-blue-500">se aplica.</span>
+                </h3>
+                <p className="text-lg text-text-muted font-medium leading-relaxed">
+                  Las escuelas de conducción te dan el pase, pero no el conocimiento. VigIA te prepara para el mundo real, donde conocer un solo artículo puede ser la diferencia entre seguir tu camino o perder tu vehículo injustamente.
+                </p>
+              </motion.div>
+              <div className="space-y-12 mt-12">
                 {[
                   {
-                    title: "Respuesta al Instante",
-                    text: "Análisis del Código Nacional de Tránsito y toda la jurisprudencia en tiempo real.",
+                    title: "Ley Exacta, Sin Dudas",
+                    text: "No te bases en interpretaciones del agente. VigIA te da el Código de Tránsito y la jurisprudencia que te protege.",
                     icon: <CheckCircle className="text-blue-500" />,
                   },
                   {
-                    title: "Citas Legales Directas",
-                    text: "Te entregamos la ley exacta para que hables con propiedad frente a la autoridad.",
+                    title: "Defensa con Argumentos",
+                    text: "Te entregamos las palabras y artículos precisos para frenar un procedimiento arbitrario en el acto.",
                     icon: <CheckCircle className="text-blue-500" />,
                   },
                 ].map((item, i) => (
@@ -135,7 +100,7 @@ export default function InteractiveMockup() {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

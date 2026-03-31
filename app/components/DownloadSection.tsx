@@ -21,26 +21,20 @@ export default function DownloadSection() {
           Lanzamiento 2026
         </motion.div>
 
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-5xl md:text-8xl font-black mb-12 tracking-tighter leading-[0.9] text-text-main"
+          className="flex flex-col items-center text-center max-w-4xl mx-auto"
         >
-          Tu respaldo legal <br /> 
-          siempre <span className="text-blue-600 dark:text-blue-500 italic">contigo.</span>
-        </motion.h2>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-lg md:text-2xl text-text-muted max-w-3xl mx-auto mb-20 leading-relaxed font-medium"
-        >
-          Sé de los primeros en experimentar la seguridad jurídica nivel experto. VigIA estará disponible pronto para iOS y Android.
-        </motion.p>
+          <h2 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter text-text-main">
+            No esperes al siguiente retén <br />
+            <span className="text-blue-600 dark:text-blue-500">para conocer tus derechos.</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-text-muted font-medium mb-12 leading-relaxed">
+            Toma el control de tu seguridad hoy mismo. Descarga el escudo que el sistema no quiere que tengas y empieza a conducir con la verdad de tu lado.
+          </p>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}

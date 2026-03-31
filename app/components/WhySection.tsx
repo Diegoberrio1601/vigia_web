@@ -1,26 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, Lock, BookOpen, UserCheck, Shield, Globe } from "lucide-react";
+import { ShieldCheck, Database, ArrowUpRight } from "lucide-react";
 
 const REASONS = [
-  { icon: <Zap size={24} />, title: "Respuesta Inmediata", desc: "Información crítica en menos de 5 segundos, justo cuando más lo necesitas en la vía." },
-  { icon: <Lock size={24} />, title: "Privacidad Blindada", desc: "Tus grabaciones y datos están cifrados de extremo a extremo, tú tienes el control total." },
-  { icon: <BookOpen size={24} />, title: "Fuentes Oficiales", desc: "Datos extraídos directamente de bases oficiales RUNT, SIMIT y el Código Nacional de Tránsito." },
-  { icon: <UserCheck size={24} />, title: "Lenguaje Claro", desc: "Traducimos términos jurídicos complejos a un lenguaje sencillo que cualquier ciudadano entiende." },
-  { icon: <Shield size={24} />, title: "Disuación Efectiva", desc: "El conocimiento preventivo y la tecnología de grabación actúan como un escudo ante posibles abusos." },
-  { icon: <Globe size={24} />, title: "ADN Colombiano", desc: "Desarrollada específicamente bajo el marco técnico y legal de nuestro país." }
+  { 
+    title: "Conocimiento es Seguridad", 
+    desc: "No permitas que te impongan multas por artículos que no aplican. Nuestra IA te da la base legal exacta en segundos.", 
+    icon: <ShieldCheck size={24} /> 
+  },
+  { 
+    title: "La Verdad es Inalterable", 
+    desc: "Una grabación normal se puede borrar. La de VigIA es evidencia técnica protegida en la nube desde el inicio.", 
+    icon: <Database size={24} /> 
+  },
+  { 
+    title: "Escudo Anti-Cobros", 
+    desc: "El sistema espera que olvides tus documentos para facturar. VigIA te blinda contra el olvido y el abuso administrativo.", 
+    icon: <ArrowUpRight size={24} /> 
+  }
 ];
 
 export default function WhySection() {
   return (
     <section id="porque" className="py-24 md:py-40 bg-primary transition-colors duration-500 border-t border-border">
       <div className="container-wide">
-        <div className="max-w-3xl mb-20 md:mb-28">
+        <div className="max-w-3xl mb-20 md:mb-28 mx-auto text-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 text-blue-600 dark:text-blue-500 font-bold uppercase tracking-widest text-xs mb-6"
+            className="flex items-center justify-center gap-3 text-blue-600 dark:text-blue-500 font-bold uppercase tracking-widest text-xs mb-6"
           >
             <div className="w-10 h-[2px] bg-current" />
             La Ventaja VigIA
@@ -31,7 +40,7 @@ export default function WhySection() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-text-main"
           >
-            ¿Por qué <span className="text-blue-600 dark:text-blue-500 text-italic italic">confiar</span> en nosotros?
+            ¿Por qué VigIA es tu <span className="text-blue-600 dark:text-blue-500">prioridad</span> hoy?
           </motion.h2>
           <motion.p 
              initial={{ opacity: 0 }}
@@ -40,7 +49,7 @@ export default function WhySection() {
              transition={{ delay: 0.2 }}
              className="text-lg md:text-xl text-text-muted font-medium leading-relaxed"
           >
-            Combinamos tecnología de punta con la legislación vigente para ofrecerte la mayor seguridad preventiva del mercado colombiano.
+            Porque en la calle estás solo contra un sistema que conoce la ley mejor que tú y la usa en tu contra. VigIA equilibra la balanza.
           </motion.p>
         </div>
 

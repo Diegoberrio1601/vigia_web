@@ -4,8 +4,8 @@ import { Video, Search, Car, ShieldCheck, Zap, Bell } from "lucide-react";
 
 const FEATURES = [
   {
-    title: "Grabación Segura",
-    description: "Documenta procedimientos con validez jurídica. Almacenamiento encriptado y sincronización inmediata con la nube.",
+    title: "Testigo Digital Incorruptible",
+    description: "Tus grabaciones no desaparecen. Evidencia protegida bajo la ley colombiana para demostrar la verdad.",
     icon: <Video className="text-blue-600 dark:text-blue-400" size={28} />,
     className: "lg:col-span-7 lg:row-span-2",
     accent: "bg-blue-500/10",
@@ -27,22 +27,22 @@ const FEATURES = [
     )
   },
   {
-    title: "Consultas Oficiales",
-    description: "Acceso directo a RUNT y SIMIT. Verifica multas y estado de licencia legalmente.",
+    title: "Verdad Jurídica al Instante",
+    description: "Que no te digan que tienes deudas que no existen. Consulta SIMIT y RUNT con un solo toque.",
     icon: <Search className="text-emerald-600 dark:text-emerald-400" size={28} />,
     className: "lg:col-span-5 lg:row-span-1",
     accent: "bg-emerald-500/10",
   },
   {
-    title: "Gestión Vehicular",
-    description: "Alertas inteligentes para SOAT, Tecnomecánica y vencimiento de licencia.",
+    title: "Escudo Anti-Multas",
+    description: "Garantiza tus deberes para exigir tus derechos. Nunca más una multa por un descuido documental.",
     icon: <Bell className="text-amber-600 dark:text-amber-400" size={28} />,
     className: "lg:col-span-5 lg:row-span-1",
     accent: "bg-amber-500/10",
   },
   {
-    title: "IA de Respaldo Legal",
-    description: "Consulta el Código de Tránsito en lenguaje natural. Respuestas precisas sobre tus deberes y derechos.",
+    title: "Defensor IA 24/7",
+    description: "Conoce la norma exacta antes de que te la impongan. Respuestas del Código de Tránsito para frenar abusos.",
     icon: <Zap className="text-purple-600 dark:text-purple-400" size={28} />,
     className: "lg:col-span-12 lg:row-span-1",
     accent: "bg-purple-500/10",
@@ -68,11 +68,9 @@ export default function BentoFeatures() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-text-main leading-[1.1]"
+            className="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-text-main"
           >
-            Todo el control preventivo <br />
-            <span className="text-text-muted opacity-60">en la palma de tu mano.</span>
+            Herramientas de <span className="text-blue-600 dark:text-blue-500">defensa</span> para el ciudadano real.
           </motion.h2>
           <motion.p 
              initial={{ opacity: 0 }}
