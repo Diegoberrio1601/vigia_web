@@ -1,58 +1,65 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, Lock, BookOpen, UserCheck, EyeOff, Globe } from "lucide-react";
+import { Zap, Lock, BookOpen, UserCheck, Shield, Globe } from "lucide-react";
 
 const REASONS = [
-  { icon: <Zap />, title: "Velocidad Crítica", desc: "Respuesta en menos de 5 segundos cuando más lo necesitas ante una autoridad en plena vía." },
-  { icon: <Lock />, title: "Privacidad Total", desc: "Tus grabaciones y datos están cifrados localmente en tu dispositivo primario." },
-  { icon: <BookOpen />, title: "Fuentes Oficiales", desc: "Citas exactas de leyes vigentes colombianas 2026, sin interpretaciones ni errores." },
-  { icon: <UserCheck />, title: "Lenguaje Ciudadano", desc: "Traducimos el derecho penal y de tránsito complejo para que cualquiera lo entienda." },
-  { icon: <EyeOff />, title: "Disuasión Efectiva", desc: "El conocimiento y la grabación detienen de inmediato cualquier intento de abuso." },
-  { icon: <Globe />, title: "100% Nacional", desc: "Hecha por y para colombianos, ajustada a nuestro marco jurídico único." }
+  { icon: <Zap size={24} />, title: "Respuesta Inmediata", desc: "Información crítica en menos de 5 segundos, justo cuando más lo necesitas en la vía." },
+  { icon: <Lock size={24} />, title: "Privacidad Blindada", desc: "Tus grabaciones y datos están cifrados de extremo a extremo, tú tienes el control total." },
+  { icon: <BookOpen size={24} />, title: "Fuentes Oficiales", desc: "Datos extraídos directamente de bases oficiales RUNT, SIMIT y el Código Nacional de Tránsito." },
+  { icon: <UserCheck size={24} />, title: "Lenguaje Claro", desc: "Traducimos términos jurídicos complejos a un lenguaje sencillo que cualquier ciudadano entiende." },
+  { icon: <Shield size={24} />, title: "Disuación Efectiva", desc: "El conocimiento preventivo y la tecnología de grabación actúan como un escudo ante posibles abusos." },
+  { icon: <Globe size={24} />, title: "ADN Colombiano", desc: "Desarrollada específicamente bajo el marco técnico y legal de nuestro país." }
 ];
 
 export default function WhySection() {
   return (
-    <section id="porque" className="section-padding relative overflow-hidden bg-secondary border-t border-white/5 py-32 md:py-48">
+    <section id="porque" className="py-24 md:py-40 bg-primary transition-colors duration-500 border-t border-border">
       <div className="container-wide">
-        <div className="text-center mb-24 md:mb-32">
+        <div className="max-w-3xl mb-20 md:mb-28">
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8"
+            className="flex items-center gap-3 text-blue-600 dark:text-blue-500 font-bold uppercase tracking-widest text-xs mb-6"
           >
-            Ventaja VigIA
+            <div className="w-10 h-[2px] bg-current" />
+            La Ventaja VigIA
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-10 gradient-heading tracking-tighter"
+            className="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-text-main"
           >
-            ¿Por qué usar VigIA?
+            ¿Por qué <span className="text-blue-600 dark:text-blue-500 text-italic italic">confiar</span> en nosotros?
           </motion.h2>
-          <p className="text-dim text-lg md:text-xl max-w-2xl mx-auto font-black italic opacity-80 leading-relaxed">
-            El conocimiento preventivo es tu mejor escudo en la vía pública colombiana. Protegemos tu integridad personal.
-          </p>
+          <motion.p 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.2 }}
+             className="text-lg md:text-xl text-text-muted font-medium leading-relaxed"
+          >
+            Combinamos tecnología de punta con la legislación vigente para ofrecerte la mayor seguridad preventiva del mercado colombiano.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {REASONS.map((reason, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="flex flex-col gap-10 p-12 md:p-14 glow-card border-none bg-slate-900 shadow-3xl transition-all hover:bg-slate-950 group"
+              className="group p-10 rounded-[2.5rem] bg-secondary dark:bg-muted border border-border flex flex-col gap-8 transition-all hover:shadow-xl hover:shadow-blue-500/5"
             >
-              <div className="w-16 h-16 rounded-[1.75rem] bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 shadow-xl group-hover:scale-110 transition-transform">
+              <div className="p-4 rounded-xl bg-primary dark:bg-muted w-fit shadow-sm group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-all duration-300 border border-border text-text-muted">
                 {reason.icon}
               </div>
               <div className="space-y-4">
-                <h4 className="font-black text-2xl md:text-3xl tracking-tighter text-white/95">{reason.title}</h4>
-                <p className="text-dim text-md md:text-lg leading-relaxed font-bold opacity-80">{reason.desc}</p>
+                <h4 className="font-bold text-xl md:text-2xl tracking-tight text-text-main">{reason.title}</h4>
+                <p className="text-text-muted font-medium leading-relaxed italic">{reason.desc}</p>
               </div>
             </motion.div>
           ))}

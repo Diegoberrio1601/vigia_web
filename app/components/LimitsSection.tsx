@@ -4,86 +4,86 @@ import { Check, X, ShieldAlert } from "lucide-react";
 
 const CAN = [
   "Citar leyes vigentes y actualizadas.",
-  "Verificar deudas en RUNT y SIMIT.",
-  "Documentar procedimientos policiales.",
-  "Alertar sobre vencimientos de SOAT."
+  "Verificar estados en RUNT y SIMIT.",
+  "Documentar procedimientos de forma segura.",
+  "Alertar sobre vencimientos de documentos."
 ];
 
 const CANNOT = [
-  "Realizar representaciones de abogados.",
-  "Interferir en el proceso policial.",
-  "Garantizar inmunidad ante infracciones."
+  "Reemplazar la asesoría de un abogado.",
+  "Interferir físicamente en procesos policiales.",
+  "Garantizar la anulación de comparendos.",
+  "Actuar como autoridad de tránsito."
 ];
 
 export default function LimitsSection() {
   return (
-    <section id="limits" className="section-padding relative overflow-hidden bg-primary border-t border-white/5 pb-48">
+    <section id="limites" className="py-24 md:py-40 bg-secondary dark:bg-primary/80 transition-colors duration-500">
       <div className="container-wide">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-20">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Can */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1 p-12 md:p-16 rounded-[4rem] bg-emerald-500/5 border border-emerald-500/10 shadow-3xl"
+            className="p-10 md:p-12 rounded-[2.5rem] bg-card border border-emerald-500/20 shadow-xl shadow-emerald-500/5 flex flex-col gap-8"
           >
-            <div className="flex items-center gap-6 mb-12">
-               <div className="p-4 rounded-3xl bg-emerald-500/15 border border-emerald-500/20 text-emerald-400">
-                  <Check size={32} />
-               </div>
-               <h3 className="text-3xl font-black italic tracking-tighter text-white uppercase tracking-[0.1em]">Puede</h3>
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 border border-emerald-500/20">
+                <Check size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-text-main uppercase tracking-tight">VigIA Puede</h3>
             </div>
-            <ul className="space-y-10">
-               {CAN.map((item, i) => (
-                  <li key={i} className="flex gap-6 text-slate-200 font-bold text-lg md:text-xl leading-relaxed italic opacity-90">
-                     <span className="text-emerald-500 text-3xl leading-none">•</span>
-                     {item}
-                  </li>
-               ))}
+            <ul className="space-y-6">
+              {CAN.map((item, i) => (
+                <li key={i} className="flex gap-4 text-text-muted font-medium text-lg leading-relaxed">
+                  <div className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Cannot */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex-1 p-12 md:p-16 rounded-[4rem] bg-red-500/5 border border-red-500/10 shadow-3xl"
+            className="p-10 md:p-12 rounded-[2.5rem] bg-card border border-red-500/20 shadow-xl shadow-red-500/5 flex flex-col gap-8"
           >
-            <div className="flex items-center gap-6 mb-12">
-               <div className="p-4 rounded-3xl bg-red-500/15 border border-red-500/20 text-red-400">
-                  <X size={32} />
-               </div>
-               <h3 className="text-3xl font-black italic tracking-tighter text-white uppercase tracking-[0.1em]">No Puede</h3>
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-xl bg-red-500/10 text-red-600 dark:text-red-500 border border-red-500/20">
+                <X size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-text-main uppercase tracking-tight">No Puede</h3>
             </div>
-            <ul className="space-y-10">
-               {CANNOT.map((item, i) => (
-                  <li key={i} className="flex gap-6 text-slate-200 font-bold text-lg md:text-xl leading-relaxed italic opacity-90">
-                     <span className="text-red-500 text-3xl leading-none">•</span>
-                     {item}
-                  </li>
-               ))}
+            <ul className="space-y-6">
+              {CANNOT.map((item, i) => (
+                <li key={i} className="flex gap-4 text-text-muted font-medium text-lg leading-relaxed">
+                  <div className="mt-2 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
+                  {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
 
-        {/* Warning Toast */}
+        {/* Warning Note */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mt-32 p-10 md:p-14 rounded-[3rem] border border-blue-500/10 bg-blue-500/5 flex flex-col md:flex-row items-center md:items-start gap-10 shadow-2xl shadow-blue-950/20"
+          className="max-w-4xl mx-auto mt-20 p-8 md:p-12 rounded-[2.5rem] bg-blue-600 dark:bg-blue-600 text-white flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-blue-500/20"
         >
-           <div className="p-6 rounded-[2rem] bg-blue-500/10 shadow-2xl shrink-0 border border-blue-500/20">
-              <ShieldAlert className="text-blue-500" size={48} />
-           </div>
-           <div className="space-y-5 text-center md:text-left">
-              <h4 className="text-2xl font-black text-blue-500 uppercase tracking-[0.4em] italic leading-none">IMPORTANTE</h4>
-              <p className="font-bold italic text-xl md:text-2xl text-dim leading-relaxed tracking-tight">
-                 VigIA es una plataforma informativa experta. Proveemos conocimiento legal inmediato pero <span className="text-white font-black underline decoration-blue-500 decoration-4 underline-offset-8">bajo ningún motivo</span> reemplazamos la asesoría jurídica personalizada de un abogado profesional colegiado.
-              </p>
-           </div>
+          <div className="p-5 rounded-2xl bg-white/10 border border-white/20 shrink-0">
+            <ShieldAlert size={40} className="text-white" />
+          </div>
+          <div className="text-center md:text-left space-y-3">
+            <h4 className="text-sm font-black uppercase tracking-[0.3em] opacity-80">Nota de Responsabilidad</h4>
+            <p className="text-lg md:text-xl font-bold leading-relaxed">
+              VigIA es una plataforma de apoyo e información legal. Proveemos conocimiento técnico inmediato, pero <span className="underline decoration-white/40 underline-offset-8">no reemplazamos</span> la asesoría de un abogado profesional.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

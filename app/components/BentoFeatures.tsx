@@ -1,97 +1,123 @@
 "use client";
 import { motion } from "framer-motion";
-import { Brain, Video, Search, Car, ShieldCheck } from "lucide-react";
+import { Video, Search, Car, ShieldCheck, Zap, Bell } from "lucide-react";
 
 const FEATURES = [
   {
-    title: "IA Legal Especializada",
-    description: "Un abogado experto en tránsito disponible 24/7. Respuestas basadas en el Código Nacional de Tránsito y jurisprudencia colombiana actualizada.",
-    icon: <Brain className="text-blue-400" size={32} />,
-    className: "lg:col-span-8 lg:row-span-1",
-    color: "from-blue-500/20 to-transparent",
-    animation: "typing"
-  },
-  {
     title: "Grabación Segura",
-    description: "Documenta procedimientos con validez judicial inmediata y almacenamiento seguro local.",
-    icon: <Video className="text-purple-400" size={32} />,
-    className: "lg:col-span-4 lg:row-span-1",
-    color: "from-purple-500/20 to-transparent",
+    description: "Documenta procedimientos con validez jurídica. Almacenamiento encriptado y sincronización inmediata con la nube.",
+    icon: <Video className="text-blue-600 dark:text-blue-400" size={28} />,
+    className: "lg:col-span-7 lg:row-span-2",
+    accent: "bg-blue-500/10",
+    visual: (
+      <div className="relative mt-8 h-48 w-full bg-secondary dark:bg-muted rounded-2xl overflow-hidden border border-border">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-16 h-16 rounded-full border-4 border-red-500 animate-pulse flex items-center justify-center">
+              <div className="w-4 h-4 bg-red-500 rounded-sm" />
+            </div>
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500">Rec: 00:42:15</div>
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+           <div className="w-1/3 h-1.5 bg-blue-500/30 rounded-full" />
+           <div className="w-1/4 h-1.5 bg-blue-500/10 rounded-full" />
+        </div>
+      </div>
+    )
   },
   {
     title: "Consultas Oficiales",
-    description: "RUNT y SIMIT al instante. Verifica multas y estado de licencia sin salir de la app.",
-    icon: <Search className="text-cyan-400" size={32} />,
-    className: "lg:col-span-6 lg:row-span-1",
-    color: "from-cyan-500/20 to-transparent"
+    description: "Acceso directo a RUNT y SIMIT. Verifica multas y estado de licencia legalmente.",
+    icon: <Search className="text-emerald-600 dark:text-emerald-400" size={28} />,
+    className: "lg:col-span-5 lg:row-span-1",
+    accent: "bg-emerald-500/10",
   },
   {
-    title: "Gestión de Vehículos",
-    description: "Alertas preventivas de SOAT y Tecnomecánica.",
-    icon: <Car className="text-indigo-400" size={32} />,
-    className: "lg:col-span-6 lg:row-span-1",
-    color: "from-indigo-500/20 to-transparent"
+    title: "Gestión Vehicular",
+    description: "Alertas inteligentes para SOAT, Tecnomecánica y vencimiento de licencia.",
+    icon: <Bell className="text-amber-600 dark:text-amber-400" size={28} />,
+    className: "lg:col-span-5 lg:row-span-1",
+    accent: "bg-amber-500/10",
+  },
+  {
+    title: "IA de Respaldo Legal",
+    description: "Consulta el Código de Tránsito en lenguaje natural. Respuestas precisas sobre tus deberes y derechos.",
+    icon: <Zap className="text-purple-600 dark:text-purple-400" size={28} />,
+    className: "lg:col-span-12 lg:row-span-1",
+    accent: "bg-purple-500/10",
+    isWide: true
   }
 ];
 
 export default function BentoFeatures() {
   return (
-    <section id="funciones" className="section-padding relative overflow-hidden bg-secondary border-t border-b border-white/5">
+    <section id="funciones" className="py-24 md:py-40 bg-secondary dark:bg-primary/50 transition-colors duration-500">
       <div className="container-wide">
-        <div className="text-center mb-24 md:mb-32">
+        <div className="max-w-3xl mb-20 md:mb-28">
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8"
+            className="flex items-center gap-3 text-blue-600 dark:text-blue-500 font-bold uppercase tracking-widest text-xs mb-6"
           >
-            Capacidades de VigIA
+            <div className="w-10 h-[2px] bg-current" />
+            Ecosistema VigIA
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-10 gradient-heading tracking-tighter"
+            className="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-text-main leading-[1.1]"
           >
-            Todo lo que necesitas, <br /> en un solo lugar.
+            Todo el control preventivo <br />
+            <span className="text-text-muted opacity-60">en la palma de tu mano.</span>
           </motion.h2>
-          <p className="text-dim max-w-2xl mx-auto text-lg md:text-xl font-bold italic opacity-80 leading-relaxed">
-            VigIA combina tecnología con conocimiento legal para protegerte en las vías colombianas con herramientas diseñadas para el ciudadano.
-          </p>
+          <motion.p 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.2 }}
+             className="text-lg md:text-xl text-text-muted font-medium leading-relaxed"
+          >
+            VigIA no solo graba; te empodera con información oficial y respaldo técnico para que transites con total tranquilidad por todo el país.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {FEATURES.map((feature, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className={`glow-card p-10 md:p-14 flex flex-col gap-10 ${feature.className} bg-slate-900 border-none shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]`}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              whileHover={{ y: -5 }}
+              className={`group relative overflow-hidden flex flex-col p-8 md:p-10 rounded-[2.5rem] bg-card border border-border ${feature.className} transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10`}
             >
-              <div className="p-5 rounded-3xl bg-blue-500/10 border border-blue-500/20 w-fit shadow-xl">
-                {feature.icon}
-              </div>
-              <div className="flex-1 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-black tracking-tighter">{feature.title}</h3>
-                <p className="text-dim text-lg leading-relaxed font-bold opacity-80">{feature.description}</p>
-              </div>
+              <div className={`absolute top-0 right-0 w-32 h-32 blur-[80px] -z-10 opacity-0 group-hover:opacity-20 transition-opacity duration-700 ${feature.accent}`} />
               
-              {feature.animation === "typing" && (
-                <div className="mt-6 p-6 md:p-8 rounded-[2rem] bg-black/80 border border-white/5 font-mono text-xs text-blue-400 font-black shadow-3xl">
-                   <div className="flex gap-2.5 mb-5 opacity-40">
-                      <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                      <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse [animation-delay:0.2s]" />
-                      <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse [animation-delay:0.4s]" />
-                   </div>
-                   <div className="opacity-60 italic tracking-tight mb-2">Simulando respuesta legal...</div>
-                   <div className="text-white font-black italic tracking-tighter leading-relaxed">
-                     "Infracción C-2: Estacionar en sitios prohibidos. El artículo 127 del CNT especifica que..."
-                   </div>
+              <div className="flex items-center justify-between mb-8">
+                <div className={`p-4 rounded-2xl ${feature.accent} border border-white/5 shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                  {feature.icon}
                 </div>
-              )}
+                <div className="w-8 h-8 rounded-full bg-secondary dark:bg-muted flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 transition-transform duration-500">
+                   <Zap size={14} className="text-text-muted" />
+                </div>
+              </div>
+
+              <div className={`flex flex-col ${feature.isWide ? 'md:flex-row md:items-center md:gap-12' : ''}`}>
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight text-text-main group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-text-muted font-medium leading-relaxed font-secondary">
+                    {feature.description}
+                  </p>
+                </div>
+                {feature.visual}
+              </div>
             </motion.div>
           ))}
         </div>
