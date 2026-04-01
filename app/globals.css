@@ -24,6 +24,8 @@
   --border-subtle: #f1f5f9;
   --mockup-frame: #f1f5f9;
   --mockup-bg: #ffffff;
+  --scroll-thumb: rgba(15, 23, 42, 0.1);
+  --heading-gradient: linear-gradient(to bottom, #0f172a, #64748b);
 }
 
 .dark {
@@ -37,6 +39,8 @@
   --border-subtle: rgba(255, 255, 255, 0.04);
   --mockup-frame: #0f172a;
   --mockup-bg: #020617;
+  --scroll-thumb: rgba(255, 255, 255, 0.1);
+  --heading-gradient: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.5));
 }
 
 @layer base {
@@ -60,7 +64,7 @@
 
   .glow-card:hover {
     @apply border-blue-500/30 scale-[1.02];
-    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.1);
   }
 
   .dark .glow-card:hover {
@@ -74,7 +78,7 @@
 
   .shimmer-btn::after {
     content: "";
-    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12;
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-blue-500/10 to-transparent skew-x-12;
     transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -84,7 +88,8 @@
 
   /* Text Gradient */
   .gradient-heading {
-    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50;
+    @apply bg-clip-text text-transparent;
+    background-image: var(--heading-gradient);
   }
 
   /* Premium Background Mesh - Contained and non-intrusive */
@@ -122,8 +127,12 @@
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { @apply bg-primary; }
-::-webkit-scrollbar-thumb { @apply bg-white/10 rounded-full border-2 border-primary; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { 
+  background-color: var(--scroll-thumb);
+  @apply rounded-full border-2 border-transparent bg-clip-padding;
+}
 
 html { scroll-behavior: smooth; }
+
