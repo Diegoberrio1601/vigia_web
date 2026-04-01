@@ -20,21 +20,16 @@ export const metadata: Metadata = {
     description:
       "Conoce tus derechos como conductor en Colombia. IA legal, grabación segura y consultas oficiales en un solo lugar.",
     type: "website",
-    url: "https://vigia.app",
+    url: "https://vigia.ribeor.com",
     siteName: "VigIA Colombia",
-    images: [{ url: "/logo-vigia.png", width: 1200, height: 630, alt: "VigIA Logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "VigIA – Tus derechos no se detienen en la vía",
-    description: "La plataforma LegalTech que empodera al conductor colombiano.",
-    images: ["/logo-vigia.png"],
+    description:
+      "La plataforma LegalTech que empodera al conductor colombiano.",
   },
-  icons: {
-    icon: "/logo-vigia.png",
-    apple: "/logo-vigia.png",
-  },
-  metadataBase: new URL("https://vigia.app"),
+  metadataBase: new URL("https://vigia.ribeor.com"),
   alternates: {
     canonical: "/",
   },
@@ -49,7 +44,11 @@ export default function RootLayout({
     <html lang="es" className="h-full" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
@@ -62,21 +61,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "VigIA",
-              "operatingSystem": "iOS, Android",
-              "applicationCategory": "LegalApplication",
-              "offers": {
+              name: "VigIA",
+              operatingSystem: "iOS, Android",
+              applicationCategory: "LegalApplication",
+              offers: {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+                price: "0",
+                priceCurrency: "USD",
               },
-              "description": "Plataforma LegalTech para conductores colombianos.",
-              "aggregateRating": {
+              description: "Plataforma LegalTech para conductores colombianos.",
+              aggregateRating: {
                 "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "1000"
-              }
-            })
+                ratingValue: "4.9",
+                ratingCount: "1000",
+              },
+            }),
           }}
         />
         <Providers>{children}</Providers>
@@ -84,4 +83,3 @@ export default function RootLayout({
     </html>
   );
 }
-
